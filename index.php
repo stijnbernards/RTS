@@ -1,13 +1,10 @@
 <?php
 
-require_once 'libs/Twig/Autoloader.php';
-Twig_Autoloader::register();
+require_once "core/Game.php";
 
-$loader = new Twig_Loader_Array(array(
-    'index' => 'Hello {{ name }}!',
-));
-$twig = new Twig_Environment($loader);
+use Game\Game;
 
-echo $twig->render('index', array('name' => 'Fabien'));
+$game = new Game();
+$game->start();
 
 ?>
