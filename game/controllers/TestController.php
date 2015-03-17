@@ -17,7 +17,17 @@ class TestController{
     }
 
     public function ModelTest(){
-        $model = TestModel::findAll();
-        var_dump($model);
+//        $model = TestModel::findOne(array(), function($collection, $result){
+////            $result->skip(1);
+//        });
+
+//        $model = new TestModel();
+//        if($model !== null){
+//            $model->username = "tespudingdingter";
+//            $model->save();
+//        }
+//        var_dump($model);
+
+        TestModel::deleteAll();
     }
 }

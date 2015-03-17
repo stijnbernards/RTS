@@ -12,7 +12,9 @@ class TestModel extends Model{
 
     public $fields = array(
         "naam",
-        "username"
+        "username",
+        "last_name",
+        "first_name"
     );
 
     public $collection = "test_collection";

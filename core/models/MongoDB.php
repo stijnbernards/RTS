@@ -16,23 +16,21 @@ class MongoDB{
     private static $database = null;
 
     private static function connect($db){
-
         $user = "admin:game_password@";
-        static::$connection = new MongoClient("mongodb://" . $user . "192.168.0.11" . ":" . "2729" . "/" . $db);
-        static::$database = static::$connection->selectDB($db);
+        self::$connection = new MongoClient("mongodb://" . $user . "192.168.0.11" . ":" . "2729" . "/" . $db);
     }
 
     public function getConnection($db){
-        if(static::$connection == null){
-            static::connect($db);
+        if(self::$connection == null){
+            self::connect($db);
         }
-        return static::$connection;
+        return self::$connection;
     }
 
     public function getDatabase($db){
-        if(static::$database == null){
-            static::connect($db);
+        if(self::$connection == null){
+            self::connect($db);
         }
-        return static::$database;
+        return self::$connection->selectDB($db);
     }
 }
