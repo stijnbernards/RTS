@@ -1,0 +1,16 @@
+{% extends "game/game.html.twig" %}
+
+{% use "game/game-info.html.twig"%}
+
+{% block content %}
+
+    {% for building in buildings %}
+        <div id="{{ building.name|replace({" ": "_"})|lower }}" class="building">
+            <h2>{{ building.name }}</h2>
+            <div class="tooltip">
+                Level: {{ building.level }}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

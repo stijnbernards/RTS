@@ -1,0 +1,23 @@
+{% block top %}
+    <h1 class="city-name">{{ name }}</h1>
+{% endblock %}
+
+{% block bottom %}
+
+    {% if resources %}
+        <ul class="resources horizontal-list">
+            {% for resource in resources %}
+                <li>{{ resource }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if options %}
+        <ul class="options horizontal-list">
+            {% for option in options %}
+                <li><a href="{{ option.href }}">{{ option.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}

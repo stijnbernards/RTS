@@ -1,0 +1,137 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  outline: none !important; }
+
+h1.city-name {
+  text-align: center;
+  font-size: 25px;
+  margin: 0; }
+
+ul.horizontal-list li {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  border-left: 2px solid red;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px; }
+
+.modal {
+  position: fixed;
+  width: 60%;
+  height: 50%;
+  top: 20%;
+  background-color: aquamarine;
+  left: 20%; }
+
+.modal-options {
+  width: 100%;
+  background-color: red;
+  text-align: right; }
+
+.building {
+  margin: 0;
+  clear: both;
+  display: inline-block;
+  padding: 30px; }
+
+.building:hover > .tooltip {
+  display: block; }
+
+.building#townhall {
+  background-color: red; }
+
+.building#temple {
+  background-color: blue; }
+
+.building#camp {
+  background-color: orange; }
+
+.building#workshop {
+  background-color: yellow; }
+
+.building#farm {
+  background-color: green; }
+
+.building#wall {
+  background-color: magenta; }
+
+.building#storage_room {
+  background-color: purple; }
+
+.building#market {
+  background-color: brown; }
+
+.building#dock {
+  background-color: aqua; }
+
+.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: Red;
+  width: 100%; }
+
+.content {
+  background-color: blue;
+  margin-top: 25px; }
+
+.bottom {
+  background-color: orange;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  width: 100%; }
+
+.tooltip {
+  display: none;
+  position: absolute; }
+
+/*# sourceMappingURL=game.css.map */

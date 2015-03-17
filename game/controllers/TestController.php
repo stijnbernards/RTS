@@ -6,6 +6,8 @@
  * Time: 23:32
  */
 
+use Game\Routing\URI;
+
 class TestController{
 
     public function GetHoi(){
@@ -28,6 +30,7 @@ class TestController{
 //        }
 //        var_dump($model);
 
+        var_dump(URI::getSegment(0));
         TestModel::deleteAll();
     }
 }

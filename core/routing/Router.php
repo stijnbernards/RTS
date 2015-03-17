@@ -7,8 +7,8 @@
  */
 
 namespace Game\Routing;
-use Twig_Environment;
-use Twig_Loader_Filesystem;
+
+use Game\View;
 
 class Router{
 
@@ -87,16 +87,11 @@ class Router{
                 }
 
                 if(isset($options->view)){
-                    $loader = new Twig_Loader_Filesystem("game/views");
-                    $twig = new Twig_Environment($loader, array(
-                        "auto_reload" => true
-                    ));
-
                     $data = array();
                     if(isset($options->data) && is_array($options->data)){
                         $data = $options->data;
                     }
-                    echo $twig->render($options->view, $data);
+                    View::render($options->view, $data);
                 }
 
             }

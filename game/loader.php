@@ -8,4 +8,7 @@
 
 use Game\Models\Model;
 
-Model::add("TestModel");
+if(!defined("REST_URL")){
+    define("REST_URL", "192.168.0.178");
+}
+//Model::add("UserModel");

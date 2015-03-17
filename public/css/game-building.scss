@@ -1,0 +1,38 @@
+.building{
+  margin: 0;
+  clear: both;
+  display: inline-block;
+  padding: 30px;
+}
+
+.building:hover > .tooltip{
+  display: block;
+}
+
+.building#townhall{
+  background-color: red;
+}
+.building#temple{
+  background-color: blue;
+}
+.building#camp{
+  background-color: orange;
+}
+.building#workshop{
+  background-color: yellow;
+}
+.building#farm {
+  background-color: green;
+}
+.building#wall{
+  background-color: magenta;
+}
+.building#storage_room{
+  background-color: purple;
+}
+.building#market{
+  background-color: brown;
+}
+.building#dock{
+  background-color: aqua;
+}

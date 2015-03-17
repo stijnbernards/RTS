@@ -36,14 +36,13 @@ class Route{
      * Check what Route does match with the current URI and return it.
      */
     public static function resolveRoutes(){
-        if(!isset($_GET["url"])){
-            http_response_code(500);
-            die(500);
+        $url = "/";
+        if(isset($_GET["url"])){
+            $url = $_GET["url"];
         }
 
         $method = $_SERVER["REQUEST_METHOD"];
 
-        $url = $_GET["url"];
         $url_parts = explode("/", $url);
         unset($url_parts[0]);
         unset($url_parts[count($url_parts)]);

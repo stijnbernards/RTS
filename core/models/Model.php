@@ -17,6 +17,9 @@ class Model{
     public $collection = null;
     public $id = null;
 
+    /**
+     * Set all fields to null
+     */
     public function __construct(){
         if(is_array($this->fields)){
             foreach($this->fields as $field){
@@ -25,6 +28,10 @@ class Model{
         }
     }
 
+    /**
+     * @return bool
+     * Saves the model to the database.
+     */
     public function save(){
         if(is_array($this->fields)){
 
@@ -53,6 +60,10 @@ class Model{
         return false;
     }
 
+    /**
+     * @return bool
+     * Deletes the document from the database.
+     */
     public function delete(){
         if($this->id != null){
             return false;
@@ -71,6 +82,12 @@ class Model{
         return false;
     }
 
+    /**
+     * @param $query
+     * @param null $callback
+     * @return null
+     * returns one value as Model Object
+     */
     public static function findOne($query, $callback = null){
         $result = self::find($query, $callback, true);
         if(count($result) >= 1){
@@ -79,6 +96,13 @@ class Model{
         return null;
     }
 
+    /**
+     * @param $query
+     * @param null $callback
+     * @param bool $one
+     * @return array
+     * returns multiple values as Model Objects in a array
+     */
     public static function find($query, $callback = null, $one = false){
         $class = get_called_class();
         $model = new $class();
@@ -146,6 +170,10 @@ class Model{
         return array();
     }
 
+    /**
+     * @return array
+     * returns all the documents in a collection
+     */
     public static function findAll(){
         $class = get_called_class();
         $model = new $class();
@@ -183,6 +211,10 @@ class Model{
         return array();
     }
 
+    /**
+     * @return bool
+     * deletes all the values in a collection
+     */
     public static function deleteAll(){
         $class = get_called_class();
         $model = new $class();
@@ -201,6 +233,10 @@ class Model{
         return false;
     }
 
+    /**
+     * @param $model
+     * Adds a new model to include the files.
+     */
     public static function add($model){
         if(file_exists("game/models/" . $model . ".php")){
             require_once "game/models/" . $model . ".php";

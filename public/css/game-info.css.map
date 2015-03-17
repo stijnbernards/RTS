@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,YAAY;EACV,UAAU,EAAE,MAAM",
+"sources": ["game-info.scss"],
+"names": [],
+"file": "game-info.css"
+}

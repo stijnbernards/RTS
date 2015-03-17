@@ -8,9 +8,13 @@
 
 use Game\Routing\Filter;
 
-Filter::add("test", function($values = array()){
-    if(isset($values[0]) && $values[0] == "test"){
+Filter::add("no_auth", function($values = array()){
+    if(!isset($_SESSION["user"])){
         return true;
     }
     return false;
+});
+
+Filter::add("auth", function($values = array()){
+    return true;
 });

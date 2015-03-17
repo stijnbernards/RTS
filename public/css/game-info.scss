@@ -1,0 +1,30 @@
+h1.city-name{
+  text-align: center;
+  font-size: 25px;
+  margin: 0;
+}
+
+ul.horizontal-list li{
+  display: inline-block;
+  float: left;
+  margin: 0;
+  border-left: 2px solid red;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.modal{
+  position: fixed;
+  width: 60%;
+  height: 50%;
+  top: 20%;
+  background-color: aquamarine;
+  left: 20%;
+}
+.modal-options{
+  width: 100%;
+  background-color: red;
+  text-align: right;
+}
