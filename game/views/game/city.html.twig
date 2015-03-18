@@ -1,8 +1,8 @@
-{% extends "game/game.html.twig" %}
+{#{% extends "game/game.html.twig" %}#}
 
-{% use "game/game-info.html.twig"%}
+{#{% use "game/game-info.html.twig"%}#}
 
-{% block content %}
+{#{% block content %}#}
 
     {% for building in buildings %}
         <div id="{{ building.name|replace({" ": "_"})|lower }}" class="building">
@@ -13,4 +13,4 @@
         </div>
     {% endfor %}
 
-{% endblock %}
+{#{% endblock %}#}

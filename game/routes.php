@@ -7,7 +7,7 @@
  */
 
 use Game\Routing\Route;
-
+var_dump($_GET);
 Route::add(Route::GET, array(
     "url" => "/",
     "view" => "login.html.twig",
@@ -21,9 +21,9 @@ Route::add(Route::POST, array(
 ));
 
 Route::add(Route::GET, array(
-    "url" => "/city/",
-    "controller" => "CityController",
-    "method" => "View",
+    "url" => "/game/",
+    "controller" => "GameController",
+    "method" => "Main",
     "filter" => "auth"
 ));
 

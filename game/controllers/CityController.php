@@ -74,7 +74,7 @@ class CityController{
     public function TownHallOptions(){
         $request = new CurlRequest("http://192.168.0.178/Authenticate/");
         $request->setOption(CURLOPT_POST, 2);
-        $request->setOption(CURLOPT_POSTFIELDS, "username=uname&password=pw");
+        $request->setOption(CURLOPT_POSTFIELDS, "username=test&password=test");
         $request->execute();
 
         var_dump($request->getError());

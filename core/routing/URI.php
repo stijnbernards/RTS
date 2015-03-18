@@ -19,8 +19,8 @@ class URI{
         if(isset($_GET["url"])){
             $url = $_GET["url"];
             $u = explode("/", $url);
-            unset($u[0]);
-            unset($u[count($u)]);
+//            unset($u[0]);
+            unset($u[count($u) - 1]);
             $u = array_values($u);
             self::$segments = $u;
         }
