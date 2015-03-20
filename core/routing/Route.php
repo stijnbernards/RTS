@@ -44,7 +44,7 @@ class Route{
         $method = $_SERVER["REQUEST_METHOD"];
 
         $url_parts = explode("/", $url);
-//        unset($url_parts[1]);
+//        unset($url_parts[0]);
         unset($url_parts[count($url_parts) - 1]);
         $url_parts = array_values($url_parts);
         $url_length = count($url_parts);

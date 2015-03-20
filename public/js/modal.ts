@@ -14,7 +14,7 @@ class Modal{
         this.hide();
     }
 
-    loadData(url: string, options: string[]){
+    loadData(url: string, options: {}){
         var request = jQuery.ajax(url, options);
         request.always(function(data){
             jQuery(".modal > .modal-content").html(data);

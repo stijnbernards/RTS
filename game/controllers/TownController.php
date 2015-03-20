@@ -10,29 +10,75 @@ use Game\View;
 use Game\Routing\URI;
 use Game\Request\CurlRequest;
 
-class CityController{
+class TownController{
 
-    public function ViewCity(){
+    public function ViewTown(){
         //temp
-        $name = null;
+        $towndata = "null";
         switch(URI::getSegment(2)){
             case 0:
-                $name = "Dunno";
+                $towndata = json_encode((object)array(
+                    "name" => "Dunno",
+                    "id" => 0,
+                    "resources" => array(
+                        (object)array(
+                            "type" => "Iron",
+                            "ammount" => 1230
+                        ),
+                        (object)array(
+                            "type" => "Wood",
+                            "ammount" => 12230
+                        ),
+                        (object)array(
+                            "type" => "Population",
+                            "ammount" => 3230
+                        )
+                    )
+                ));
                 break;
             case 1:
-                $name = "Pudding";
+                $towndata = json_encode((object)array(
+                    "name" => "Pudding",
+                    "id" => 1,
+                    "resources" => array(
+                        (object)array(
+                            "type" => "Coal",
+                            "ammount" => 1023
+                        ),
+                        (object)array(
+                            "type" => "Wood",
+                            "ammount" => 1220
+                        ),
+                        (object)array(
+                            "type" => "Population",
+                            "ammount" => 1230
+                        )
+                    )
+                ));
                 break;
             default:
-                $name = "Banaan";
+                $towndata = json_encode((object)array(
+                    "name" => "Banaan",
+                    "id" => 2,
+                    "resources" => array(
+                        (object)array(
+                            "type" => "Stone",
+                            "ammount" => 10
+                        ),
+                        (object)array(
+                            "type" => "Wood",
+                            "ammount" => 120
+                        ),
+                        (object)array(
+                            "type" => "Population",
+                            "ammount" => 30
+                        )
+                    )
+                ));
         }
 
-        View::render("game/city.html.twig", array(
-            "name" => $name,
-            "resources" => array(
-                "Stone: 10",
-                "Wood: 120",
-                "Population: 30"
-            ),
+        View::render("game/town.html.twig", array(
+            "towndata" => $towndata,
             "buildings" => array(
                 (object)array(
                     "name" => "Townhall",

@@ -1,4 +1,34 @@
-h1.city-name{
+.town-control{
+  width: 20%;
+  margin: 0 auto;
+  background-color: orange;
+  text-align: center;
+}
+.town-control > *{
+  display: inline-block;
+  float: left;
+}
+.town-info{
+  width: 80%;
+}
+.town-right,
+.town-left{
+  width: 10%;
+}
+
+.world-info{
+  background-color: yellow;
+  display: inline-block;
+  float: left;
+}
+.world{
+  border-radius: 50%;
+  background-color: purple;
+  width: 40px;
+  height: 40px;
+}
+
+h1.town-name{
   text-align: center;
   font-size: 25px;
   margin: 0;

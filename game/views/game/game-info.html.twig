@@ -1,11 +1,33 @@
 {% block top %}
-    <h1 class="city-name">{{ name }}</h1>
+    <div class="world-info">
+        <div class="world">
+
+        </div>
+    </div>
+    <div class="town-control container">
+        <div class="town-left">
+            <
+        </div>
+        <div class="town-info">
+            <h1 class="town-name">{{ name }}</h1>
+            <div class="towns">
+                <select>
+                    {% for town in boarddata.towns %}
+                        <option value="{{ town.id }}">{{ town.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="town-right">
+            >
+        </div>
+    </div>
 {% endblock %}
 
 {% block bottom %}
 
     {% if resources %}
-        <ul class="resources horizontal-list">
+        <ul class="town-resources horizontal-list">
             {% for resource in resources %}
                 <li>{{ resource }}</li>
             {% endfor %}
@@ -13,7 +35,7 @@
     {% endif %}
 
     {% if options %}
-        <ul class="options horizontal-list">
+        <ul class="town-options horizontal-list">
             {% for option in options %}
                 <li><a href="{{ option.href }}">{{ option.name }}</a></li>
             {% endfor %}

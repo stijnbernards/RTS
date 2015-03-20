@@ -8,10 +8,11 @@
 {% endfor %}
 
 <div class="hidden">
-    <span class="city-name">{{ name }}</span>
-    <span class="city-resources">
-        {% for resource in resources %}
-            <span class="resource">{{ resource }}</span>
-        {% endfor %}
+    <span class="town-data">
+        {% if towndata %}
+            {{ towndata }}
+        {% else %}
+            null
+        {% endif %}
     </span>
 </div>
