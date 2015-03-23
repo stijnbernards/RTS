@@ -1,0 +1,4 @@
+C:\Users\stijn\Documents\Visual Studio 2010\Projects\RestServer\RestServer\bin\Release\RestServer.exe
+C:\Users\stijn\Documents\Visual Studio 2010\Projects\RestServer\RestServer\bin\Release\RestServer.pdb
+C:\Users\stijn\Documents\Visual Studio 2010\Projects\RestServer\RestServer\obj\x86\Release\RestServer.exe
+C:\Users\stijn\Documents\Visual Studio 2010\Projects\RestServer\RestServer\obj\x86\Release\RestServer.pdb
