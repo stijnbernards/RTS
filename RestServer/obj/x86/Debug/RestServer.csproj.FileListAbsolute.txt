@@ -1,0 +1,5 @@
+c:\users\stijn\documents\visual studio 2010\Projects\RestServer\RestServer\bin\Debug\RestServer.exe
+c:\users\stijn\documents\visual studio 2010\Projects\RestServer\RestServer\bin\Debug\RestServer.pdb
+c:\users\stijn\documents\visual studio 2010\Projects\RestServer\RestServer\obj\x86\Debug\RestServer.exe
+c:\users\stijn\documents\visual studio 2010\Projects\RestServer\RestServer\obj\x86\Debug\RestServer.pdb
+C:\Users\stijn\documents\visual studio 2010\Projects\RestServer\RestServer\obj\x86\Debug\RestServer.csprojResolveAssemblyReference.cache
