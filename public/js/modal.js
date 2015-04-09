@@ -5,6 +5,7 @@
 var jQuery = jQuery;
 var Modal = (function () {
     function Modal() {
+        jQuery(".modal").draggable();
         jQuery(".modal-options > .modal-close").on("click", function () {
             jQuery(this).closest(".modal").hide();
         });

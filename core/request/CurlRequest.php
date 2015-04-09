@@ -16,6 +16,8 @@ class CurlRequest{
     private $username = null;
     private $password = null;
     private $data = null;
+    private $send_data = array();
+    private $hash = null;
 
     public function __construct($url){
         $this->url = $url;
@@ -38,14 +40,41 @@ class CurlRequest{
 
         curl_setopt($this->curl, CURLOPT_URL, $this->url);
 
+        if(count($this->send_data) >= 1){
+            $data = "";
+            foreach($this->send_data as $key => $value){
+                $data .= $key . "=" . urldecode($value) . "&";
+            }
+            $data = rtrim($data, "&");
+
+            curl_setopt($this->curl, CURLOPT_POST, count($this->send_data));
+            curl_setopt($this->curl, CURLOPT_POSTFIELDS, $data);
+        }
+
         if($this->username !== null && $this->password !== null){
             curl_setopt($this->curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
             curl_setopt($this->curl, CURLOPT_USERPWD, $this->username . ":" . $this->password);
         }
 
+        if($this->hash !== null){
+            curl_setopt($this->curl, CURLOPT_HTTPHEADER, array("hash: " . $this->hash));
+        }
+
         curl_setopt_array($this->curl, $this->options);
 
         $this->data = curl_exec($this->curl);
+    }
+
+    public function debug(){
+        var_dump(curl_getinfo($this->curl));
+    }
+
+    public function setHash($hash = null){
+        $this->hash = $hash == null ? $_SESSION["user_hash"] : $hash;
+    }
+
+    public function setData($data = array()){
+        $this->send_data = $data;
     }
 
     public function getInfo($opt = null){

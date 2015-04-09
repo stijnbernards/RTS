@@ -9,7 +9,7 @@
 use Game\Routing\Route;
 
 Route::add(Route::GET, array(
-    "url" => "/",
+    "url" => "/login/",
     "view" => "login.html.twig",
     "filter" => "no_auth"
 ));
@@ -17,7 +17,7 @@ Route::add(Route::POST, array(
     "url" => "/login/",
     "controller" => "UserController",
     "method" => "Login",
-    "filter" => "no_auth"
+    "filter" => "no_auth|csrf"
 ));
 
 Route::add(Route::GET, array(

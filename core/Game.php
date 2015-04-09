@@ -11,6 +11,8 @@ namespace Game;
 use Game\Routing\Router;
 use Game\Routing\Route;
 use Game\Routing\URI;
+use Game\Request\Redirect;
+
 use Twig_Autoloader;
 
 class Game{
@@ -30,6 +32,7 @@ class Game{
 
         require_once "validating/Validator.php";
 
+        require_once "request/Redirect.php";
         require_once "request/CurlRequest.php";
 
         require_once "view/View.php";
@@ -42,11 +45,13 @@ class Game{
      * Start the game.
      */
     public function start(){
+        session_start();
         require_once "game/loader.php";
         require_once "game/routes.php";
         require_once "game/filters.php";
         require_once "game/validators.php";
 
+        Redirect::resolveData();
         URI::resolveSegments();
 
         $route = Route::resolveRoutes();

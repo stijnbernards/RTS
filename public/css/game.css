@@ -48,6 +48,9 @@ table {
 * {
   outline: none !important; }
 
+.town-view {
+  padding-top: 50px; }
+
 .town-control {
   width: 20%;
   margin: 0 auto;
@@ -103,6 +106,11 @@ ul.horizontal-list li {
   width: 100%;
   background-color: red;
   text-align: right; }
+
+.modal-close {
+  width: 4%;
+  text-align: center;
+  float: right; }
 
 .building {
   margin: 0;

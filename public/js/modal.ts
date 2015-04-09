@@ -8,6 +8,7 @@ var jQuery = jQuery;
 class Modal{
 
     constructor(){
+        jQuery(".modal").draggable();
         jQuery(".modal-options > .modal-close").on("click", function(){
             jQuery(this).closest(".modal").hide();
         });

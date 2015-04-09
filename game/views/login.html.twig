@@ -1,5 +1,29 @@
 <form method="POST" action="/login/">
-    email: <input type="email" name="email"/><br />
+    {{ generateCSRFToken() }}
+    email: <input type="text" value="{{ redirect.data.input.email }}" name="email"/><br />
+
+    {% if redirect.data.validator.hasError("email") %}
+        <ul>
+            {% for error in redirect.data.validator.getError("email") %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul><br />
+    {% endif %}
+
+
     password: <input type="password" name="password"/><br />
+
+    {% if redirect.data.validator.hasError("password") %}
+        <ul>
+            {% for error in redirect.data.validator.getError("password") %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul><br />
+    {% endif %}
+
     <input type="submit" name="submit"/>
 </form>
+
+{% for error in redirect.data.errors %}
+    {{ error }}
+{% endfor %}

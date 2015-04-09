@@ -13,131 +13,46 @@ use Game\Request\CurlRequest;
 class TownController{
 
     public function ViewTown(){
-        //temp
-        $towndata = "null";
-        switch(URI::getSegment(2)){
-            case 0:
-                $towndata = json_encode((object)array(
-                    "name" => "Dunno",
-                    "id" => 0,
-                    "resources" => array(
-                        (object)array(
-                            "type" => "Iron",
-                            "ammount" => 1230
-                        ),
-                        (object)array(
-                            "type" => "Wood",
-                            "ammount" => 12230
-                        ),
-                        (object)array(
-                            "type" => "Population",
-                            "ammount" => 3230
-                        )
-                    )
-                ));
-                break;
-            case 1:
-                $towndata = json_encode((object)array(
-                    "name" => "Pudding",
-                    "id" => 1,
-                    "resources" => array(
-                        (object)array(
-                            "type" => "Coal",
-                            "ammount" => 1023
-                        ),
-                        (object)array(
-                            "type" => "Wood",
-                            "ammount" => 1220
-                        ),
-                        (object)array(
-                            "type" => "Population",
-                            "ammount" => 1230
-                        )
-                    )
-                ));
-                break;
-            default:
-                $towndata = json_encode((object)array(
-                    "name" => "Banaan",
-                    "id" => 2,
-                    "resources" => array(
-                        (object)array(
-                            "type" => "Stone",
-                            "ammount" => 10
-                        ),
-                        (object)array(
-                            "type" => "Wood",
-                            "ammount" => 120
-                        ),
-                        (object)array(
-                            "type" => "Population",
-                            "ammount" => 30
-                        )
-                    )
-                ));
+        $id = URI::getSegment(2);
+        if($id == null && !is_integer($id)){
+            return;
         }
 
-        View::render("game/town.html.twig", array(
-            "towndata" => $towndata,
-            "buildings" => array(
-                (object)array(
-                    "name" => "Townhall",
-                    "level" => 20,
-                    "id" => 0
-                ),
-                (object)array(
-                    "name" => "Temple",
-                    "level" => 20,
-                    "id" => 1
-                ),
-                (object)array(
-                    "name" => "Camp",
-                    "level" => 20,
-                    "id" => 2
-                ),
-                (object)array(
-                    "name" => "Workshop",
-                    "level" => 20,
-                    "id" => 3
-                ),
-                (object)array(
-                    "name" => "Farm",
-                    "level" => 20,
-                    "id" => 4
-                ),
-                (object)array(
-                    "name" => "Wall",
-                    "level" => 20,
-                    "id" => 5
-                ),
-                (object)array(
-                    "name" => "Storage room",
-                    "level" => 20,
-                    "id" => 6
-                ),
-                (object)array(
-                    "name" => "Market",
-                    "level" => 20,
-                    "id" => 7
-                ),
-                (object)array(
-                    "name" => "Dock",
-                    "level" => 20,
-                    "id" => 8
-                )
-            )
-        ));
+        $request = new CurlRequest(REST_URL . "/Towndata/" . $id . "/all");
+        $request->setHash();
+        $request->setOption(CURLOPT_CONNECTTIMEOUT, 5);
+        $request->execute();
+
+        if($request->getResponseCode() == 200 && !$request->getError() && $request->getData()){
+
+            if($data = json_decode($request->getData())){
+                $towndata = null;
+                $town = new Town($data);
+                $towndata = json_encode((object)array(
+                    "name" => $town->name,
+                    "id" => $town->id,
+                    "resources" => $town->resources
+                ));
+
+                if($towndata !== null){
+                    View::render("game/town.html.twig", array(
+                        "towndata" => $towndata,
+                        "buildings" => $town->buildings
+                    ));
+                }
+            }
+        }
     }
 
     public function TownHallOptions(){
-        $request = new CurlRequest("http://192.168.0.178/Authenticate/");
-        $request->setOption(CURLOPT_POST, 2);
-        $request->setOption(CURLOPT_POSTFIELDS, "username=test&password=test");
-        $request->execute();
-
-        var_dump($request->getError());
-        var_dump($request->getData());
-        var_dump($request->getInfo());
+//        $request = new CurlRequest("http://192.168.0.178/Authenticate/");
+//        $request->setOption(CURLOPT_POST, 2);
+//        $request->setOption(CURLOPT_POSTFIELDS, "username=test&password=test");
+//        $request->execute();
+//
+//        var_dump($request->getError());
+//        var_dump($request->getData());
+//        var_dump($request->getInfo());
 //        View::render("game/buildings/townhall.html.twig", array());
     }
 

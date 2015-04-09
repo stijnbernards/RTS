@@ -23,6 +23,14 @@ var Board = (function () {
         jQuery(".world").on("click", function () {
             $this.mapView();
         });
+        jQuery(".town-name").on("click", function () {
+            if ($this.town == null) {
+                var id = jQuery(".towns select option:first").val();
+                if (id !== undefined) {
+                    $this.loadTown(id);
+                }
+            }
+        });
     };
     Board.prototype.loadUserData = function () {
         var data = JSON.parse(jQuery(".boarddata").text());
@@ -87,6 +95,11 @@ var Board = (function () {
         jQuery(".content").html("<div class='world-map'></div>");
         jQuery(".world-map").draggable();
         jQuery("body").addClass("world-view");
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+                this.loadSegment(i, j);
+            }
+        }
     };
     Board.prototype.loadSegment = function (x, y) {
         if (jQuery("body").hasClass("world-view")) {
@@ -99,6 +112,7 @@ var Board = (function () {
         }
     };
     Board.prototype.resetContent = function () {
+        this.town = null;
         jQuery(".town-resources").html("");
         jQuery(".town-name").html("No town");
         jQuery("body").attr("class", "");
@@ -108,7 +122,7 @@ var Board = (function () {
 jQuery(document).ready(function () {
     var board = new Board();
     board.loadUserData();
-    board.loadTown(1);
+    board.loadTown(jQuery(".towns > select > option:selected").val());
     window["board"] = board;
 });
 //# sourceMappingURL=board.js.map
